@@ -15,24 +15,8 @@ import LoginScreen from './Screens/LoginScreen';
 import MainScreen from './Screens/MainScreen';
 import WriteScreen from './Screens/WriteScreen';
 import ReadScreen from './Screens/ReadScreen';
-// create our app's navigation stack
-/*
-const MyAppNavigator = createStackNavigator({
-  Home: HomeScreen,
-  Create: CreateScreen,
-});
-*/
-//export default MyAppNavigator;
-/*
-const MyApp = createStackNavigator({
-    Loading: LoadingScreen,
-    SignSignupScreen,
-    LoginScreen,
-    MainScreen
-  }
-);
-export default MyApp;
-*/
+import SelectNameCatScreen from './Screens/SelectNameCatScreen';
+
 
 const MyAppNavigator = createSwitchNavigator(
   {
@@ -40,7 +24,9 @@ const MyAppNavigator = createSwitchNavigator(
   MainScreen,
   SignupScreen,
   LoginScreen,
-  ReadScreen
+  ReadScreen,
+  WriteScreen,
+  SelectNameCatScreen,
   },
   {
     initialRouteName: 'LoginScreen'
