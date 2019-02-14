@@ -22,7 +22,7 @@ export default class Todos extends React.Component {
         categories:[],
         tags:[],
         todos:[],
-        counted:0
+        counted:0,
       };
       fake= "you suck bro"
       this.catHolder=[];
@@ -93,9 +93,18 @@ export default class Todos extends React.Component {
           if (doc && doc.exists) {
             const {types} = doc.data();
             count++;
+            var arr = [];
+
+            for (var Key in types) {
+              arr.push(types[Key]);
+            }
+            var arr2 = Object.keys(types).map(function (i) {
+              return types[i];
+            });
+            var arr3 = Object.values(types);
            //fake = "it worked";
            this.setState({
-              todos: types,
+              todos: arr,
               counted: count,
             });
            // let cat =[]
@@ -108,11 +117,7 @@ export default class Todos extends React.Component {
       });
       //count++;
     }
-    addDoIt(){
-      const namesList;
-      namesList.map(x=>x.value )
-      centreValues.map(x=> this.setState({ centreDetailArray: [...this.state.centreDetailArray, x.value.centreDetail] }))
-    }
+    
     
     categoriesFunc(){
       let cat =[]
@@ -127,7 +132,6 @@ export default class Todos extends React.Component {
       this.props.navigation.navigate('ReadScreen')
     }
         render() {
-          //this.addRead();
         return (
           <ImageBackground source={require('../assets/moon.jpg')} style ={styles.container}>
             <View style={{ flex: 1 }}>
@@ -156,7 +160,6 @@ export default class Todos extends React.Component {
                   <Picker.Item label="Pokemon" value="pokemon" />
                   
               </Picker>
-              <Text>{fake}</Text>
               <Picker
                   iosIcon={<Icon name="arrow-down" />}
                   mode="dropdown"
@@ -197,8 +200,6 @@ export default class Todos extends React.Component {
                   <Picker.Item label="35" value="35" />
                   <Picker.Item label="40" value="40" />
               </Picker>
-        
-            <Text>{count}</Text>
               
               <Button
                 large
@@ -212,32 +213,14 @@ export default class Todos extends React.Component {
               <Button
                 large
                 rounded
-                title={'Generate Read'}
+                title={'Read'}
                 backgroundColor={'#C133FF'}
                 onPress={() => this.addRead()}
               />
-              <Button
-                large
-                rounded
-                title={'Count'}
-                backgroundColor={'#C133FF'}
-                onPress={() => this.addDoIt()}
-              />
-              <ScrollView
-          backgroundColor = 'white'>
-          <FlatList
-                data={this.state.todos}
-                renderItem={( {item}) => <Text>{item}</Text>}
-                keyExtractor={(item, index) => index.toString()}
-                
-              />
-              
-            <Text>{fake}{this.state.counted}</Text>
-            
-          </ScrollView>
-              <Text></Text>
               
               <Text></Text>
+              
+              <Text>{this.state.todos}</Text>
             </View>
             </ImageBackground>
         );
@@ -248,6 +231,7 @@ export default class Todos extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
+        
       },
       logo: {
         height: 120,

@@ -7,6 +7,7 @@ import { Button, } from 'react-native-elements';
 import {Hash_Key1,Textin,Amountin} from './WriteScreen';
 let Ultimate_key;
 let fake;
+
 let count;
 export default class Todos extends React.Component {
   

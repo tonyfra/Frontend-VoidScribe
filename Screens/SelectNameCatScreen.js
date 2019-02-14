@@ -31,17 +31,6 @@ export default class Todos extends React.Component {
       });
     }
 
-    updateTextInput(value) {
-      //const { currentUser } = firebase.auth()
-      this.setState({ textInput: value});
-      Textin = this.state.textInput;
-    }
-
-    updateAmountInput(value) {
-      //const { currentUser } = firebase.auth()
-      this.setState({ amountInput: value});
-      Amountin = this.state.textInput;
-    }
 
     state = { currentUser: null }
     componentDidMount() {
@@ -69,9 +58,12 @@ export default class Todos extends React.Component {
 
         render() {
         return (
-          <ImageBackground source={require('../assets/moon.jpg')} style ={styles.container}>
-            <View style={{ flex: 1 }}>
-            <Text>{count}</Text>
+          <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
+          <View style={ styles.container2 }>
+            <Text></Text>
+            <Text style={styles.titleText}>Select a Category</Text>
+          </View>
+            <View style={ styles.container1}>
               <Button
                 large
                 rounded
@@ -114,35 +106,25 @@ export default class Todos extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
+        
+    
       },
-      logo: {
-        height: 120,
-        marginBottom: 16,
-        marginTop: 64,
-        padding: 10,
-        width: 135,
+      container1: {
+        
+        justifyContent: 'center',
+        
       },
-      welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+      container2: {
+        flex: 1,
+        alignItems: 'center'
       },
-      instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+      titleText: {
+        flex: 1,
+        fontFamily: 'Cochin',
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'black',
       },
-      modules: {
-        margin: 20,
-      },
-      modulesHeader: {
-        fontSize: 16,
-        marginBottom: 8,
-      },
-      module: {
-        fontSize: 14,
-        marginTop: 4,
-        textAlign: 'center',
-      },
+     
       
     });
