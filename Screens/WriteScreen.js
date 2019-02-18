@@ -11,6 +11,9 @@ let Textin;
 let Amountin;
 let count;
 let fake;
+var Names={
+
+}
 export default class Todos extends React.Component {
   
     constructor() {
@@ -75,7 +78,7 @@ export default class Todos extends React.Component {
         Req_Arguments: Req_list,
         User_ID: firebase.auth().currentUser.uid,
         Request_Source: 'Mobile',
-        Auth_Token: 'NotMyHashKey',
+        Auth_Token: 'thisIsNew',
         Hash_Key: Hash_Key1,
       });
       this.setState({
@@ -133,7 +136,7 @@ export default class Todos extends React.Component {
     }
         render() {
         return (
-          <ImageBackground source={require('../assets/moon.jpg')} style ={styles.container}>
+          <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
             <View style={{ flex: 1 }}>
              
             <Text>{this.arrayHolder}</Text>
@@ -145,44 +148,76 @@ export default class Todos extends React.Component {
                   selectedValue={this.state.textInput}
                   onValueChange={(value) => this.updateTextInput(value)}
               > 
+                  <Picker.Item label="American Cities" value="americanCities" />
+                  <Picker.Item label="American Companies" value="americanCompanies" />
+                  <Picker.Item label="American Desserts" value="americanDesserts" />
+                  <Picker.Item label="American Forenames" value="americanForenames" />
+                  <Picker.Item label="American Forenames Female" value="americanForenamesFemale" />
+                  <Picker.Item label="American Forenames Male" value="americanForenamesMale" />
                   <Picker.Item label="American States" value="americanStates" />
-                  <Picker.Item label="Animals" value="animals" />
-                  <Picker.Item label="Breads" value="breads" />
-                  <Picker.Item label="British Desserts" value="britishDesserts" />
-                  <Picker.Item label="Car Brands" value="carBrands" />
-                  <Picker.Item label="Clothing" value="clothing" />
-                  <Picker.Item label="Dog Names" value="dogNames" />
-                  <Picker.Item label="Dragons" value="dragons" />
-                  <Picker.Item label="Emotions" value="emotions" />
-                  <Picker.Item label="Fabrics" value="fabrics" />
-                  <Picker.Item label="Fruit" value="fruit" />
-                  <Picker.Item label="Greek Towns" value="greekTowns" />
-                  <Picker.Item label="Pokemon" value="pokemon" />
+                  <Picker.Item label="American Surnames" value="americanSurnames" />
+                  <Picker.Item label="American States" value="animals" />
+                  <Picker.Item label="American States" value="animalSounds" />
+                  <Picker.Item label="American States" value="artTypes" />
+                  <Picker.Item label="American States" value="birdCommonNames" />
+                  <Picker.Item label="American States" value="boardGames" />
+                  <Picker.Item label="American States" value="boatTypes" />
+                  <Picker.Item label="American States" value="bodyParts" />
+                  <Picker.Item label="American States" value="breads" />
+                  <Picker.Item label="American States" value="breakfastCereals" />
+                  <Picker.Item label="American States" value="britishDesserts" />
+                  <Picker.Item label="American States" value="brythonicDeities" />
+                  <Picker.Item label="American States" value="buildingTypes" />
+                  <Picker.Item label="American States" value="cakes" />
+                  <Picker.Item label="American States" value="capitolCities" />
+                  <Picker.Item label="American States" value="carBrands" />
+                  <Picker.Item label="American States" value="carParts" />
+                  <Picker.Item label="American States" value="chineseCities" />
+                  <Picker.Item label="American States" value="citiesWorldWide" />
+                  <Picker.Item label="American States" value="clothing" />
+                  <Picker.Item label="American States" value="cocktails" />
+                  <Picker.Item label="American States" value="colours" />
+                  <Picker.Item label="American States" value="constellationsModern" />
+                  <Picker.Item label="American States" value="cookingUtensils" />
+                  <Picker.Item label="American States" value="countries" />
+                  <Picker.Item label="American States" value="cryptocurrencies" />
+                  <Picker.Item label="American States" value="currencies" />
+                  <Picker.Item label="American States" value="danceStyles" />
+                  <Picker.Item label="American States" value="dataStructures" />
+                  <Picker.Item label="American States" value="dinosaurs" />
+                  <Picker.Item label="American States" value="diseases" />
+                  <Picker.Item label="American States" value="dogNames" />
+                  <Picker.Item label="American States" value="dragons" />
+                  <Picker.Item label="American States" value="drinks" />
+                  <Picker.Item label="American States" value="dutchForenames" />
+                  <Picker.Item label="American States" value="egyptianDeities" />
+                  <Picker.Item label="American States" value="emotions" />
+                  <Picker.Item label="American States" value="englishTowns" />
+                  <Picker.Item label="American States" value="ethnicGroupsContemporary" />
+                  <Picker.Item label="American States" value="fabrics" />
+                  <Picker.Item label="American States" value="fellsInCambria" />
+                  <Picker.Item label="American States" value="fish" />
+                  <Picker.Item label="American States" value="flowersCommonNames" />
+                  <Picker.Item label="American States" value="frenchForenames" />
+                  <Picker.Item label="American States" value="fruit" />
+                  <Picker.Item label="American States" value="furniture" />
+                  <Picker.Item label="American States" value="generation1Pokemon" />
+                  <Picker.Item label="American States" value="generation2Pokemon" />
+                  <Picker.Item label="American States" value="generation3Pokemon" />
+                  <Picker.Item label="American States" value="generation4Pokemon" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  <Picker.Item label="American States" value="americanStates" />
+                  
                   
               </Picker>
-              <Picker
-                  iosIcon={<Icon name="arrow-down" />}
-                  mode="dropdown"
-                  placeholder="Select A Category "
-                  selectedValue={this.state.textInput}
-                  onValueChange={(value) => this.updateTextInput(value)}
-              >
-                  
-                  <Picker.Item label="Creatures" value="americanStates" />
-                  <Picker.Item label="Animals" value="animals" />
-                  <Picker.Item label="Breads" value="breads" />
-                  <Picker.Item label="British Desserts" value="britishDesserts" />
-                  <Picker.Item label="Car Brands" value="carBrands" />
-                  <Picker.Item label="Clothing" value="clothing" />
-                  <Picker.Item label="Dog Names" value="dogNames" />
-                  <Picker.Item label="Dragons" value="dragons" />
-                  <Picker.Item label="Emotions" value="emotions" />
-                  <Picker.Item label="Fabrics" value="fabrics" />
-                  <Picker.Item label="Fruit" value="fruit" />
-                  <Picker.Item label="Greek Towns" value="greekTowns" />
-                  <Picker.Item label="Pokemon" value="pokemon" />
-                  
-              </Picker>
+             
               <Text></Text>
               <Picker
                   iosIcon={<Icon name="arrow-down" />}
@@ -199,6 +234,8 @@ export default class Todos extends React.Component {
                   <Picker.Item label="30" value="30" />
                   <Picker.Item label="35" value="35" />
                   <Picker.Item label="40" value="40" />
+                  <Picker.Item label="45" value="45" />
+                  <Picker.Item label="50" value="50" />
               </Picker>
               
               <Button
@@ -210,13 +247,7 @@ export default class Todos extends React.Component {
                 backgroundColor={'#C133FF'}
                 onPress={() => this.buttonFunc()}
               />
-              <Button
-                large
-                rounded
-                title={'Read'}
-                backgroundColor={'#C133FF'}
-                onPress={() => this.addRead()}
-              />
+              
               
               <Text></Text>
               

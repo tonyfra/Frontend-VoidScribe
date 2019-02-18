@@ -7,8 +7,17 @@ import { Button, } from 'react-native-elements';
 import {Hash_Key1,Textin,Amountin} from './WriteScreen';
 let Ultimate_key;
 let fake;
-
+let scode;
 let count;
+function processResponse(response) {
+  scode = response.status;
+  const data = response.json();
+  return Promise.all([statusCode, data]).then(res => ({
+    statusCode: res[0],
+    data: res[1]
+  }));
+}
+
 export default class Todos extends React.Component {
   
     constructor() {
@@ -21,8 +30,9 @@ export default class Todos extends React.Component {
         selectedText: "pokemon",
         selectedAmount: "5",
         loaded: false,
-        hash_hash:Hash_Key1,
-        counted:0
+        counted:0,
+        errorMessage: null,
+        status:''
       };
       this.arrayHolder=[];
       this.saveHash = Hash_Key1;
@@ -30,11 +40,13 @@ export default class Todos extends React.Component {
       fake = "you suck"
       count=0;
     }
+
     onValueChange(value) {
       this.setState({
         selected: value
       });
     }
+
     state = { currentUser: null }
     componentDidMount() {
     const { currentUser } = firebase.auth()
@@ -50,31 +62,38 @@ export default class Todos extends React.Component {
       //const { currentUser } = firebase.auth()
       this.setState({ amountInput: value});
     }
-    addRead=()=>{
-    hasharray=[];
-    firebase.firestore()
-    .collection('Completed_Requests')
-    .get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        if (doc && doc.exists) {
-          const { Processed_Request, Hash_Key} = doc.data();
-          if (Hash_Key == this.state.hash_hash){
-          
-            fake = "it worked";
-            this.state.counted = this.state.counted + 1;
-            this.setState({ 
-              loaded:true,
-              todos: Processed_Request
-            });
-            hasharray= Processed_Request;
+    addRead(){
+      const Req_list = 
+      {
+        Name_Type: Textin ,
+        Amount:  Amountin,
             
-          }
-        }
+      }
+      const id =firebase.auth().currentUser.uid
+      const NameReq={
+          "Name_Type": "americanCities",
+          "Amount":  40,
+          "User_ID": id,
+      }
+      return fetch('http://www.voidscribe.com/GenerateNames', {
+        method: 'POST',
+        body: JSON.stringify({
+          "Name_Type": "americanCities",
+          "Amount":  40,
+          "User_ID": id,
+        }),
+      }).then(processResponse)
+        .then((response) => response.json())
+        .then((responseJson)=> {
+          this.setState({ 
+            loaded:true,
+            todos: responseJson.Data,
+          })
+          fake = "Awesome";
+        })
         
-      });
-    });
-    return(hasharray);
+      .catch(error => this.setState({ errorMessage: error.errorMessage }))
+
     }
 
     buttonFunc(){
@@ -85,7 +104,7 @@ export default class Todos extends React.Component {
       snapshot.forEach(doc => {
         if (doc && doc.exists) {
           const { Processed_Request, Hash_Key} = doc.data();
-          if (Hash_Key == this.state.hash_hash){
+          if (Hash_Key == Ultimate_key){
           
             fake = "it worked";
             this.state.counted = this.state.counted + 1;
@@ -94,6 +113,7 @@ export default class Todos extends React.Component {
               todos: Processed_Request
             });
             
+            
           }
         }
         
@@ -101,13 +121,17 @@ export default class Todos extends React.Component {
     });
     }
     render() {
-      //this.buttonFunc();
     return (
-      <ImageBackground source={require('../assets/moon.jpg')} style ={styles.container}>
+      <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
         <View style={{ flex: 1 }}>
        
         <Text></Text>
         <Text style={styles.module}>List of Names</Text>
+        {this.state.errorMessage &&
+          <Text style={{ color: 'red' }}>
+            {this.state.errorMessage}
+          </Text>}
+        
           <ScrollView
           backgroundColor = 'white'>
           <FlatList
@@ -119,6 +143,7 @@ export default class Todos extends React.Component {
               />
               
             <Text>{fake}{this.state.counted}</Text>
+            <Text></Text>
             
           </ScrollView>
           <Text></Text>
@@ -128,13 +153,13 @@ export default class Todos extends React.Component {
         <Text></Text>
           <Text></Text>
           
-          <Text></Text>
+          <Text>{scode}</Text>
           <Button
             large
             rounded
             title={'Generate Read'}
             backgroundColor={'#C133FF'}
-            onPress={() => this.buttonFunc()}
+            onPress={() => this.addRead()}
           />
         </View>
         </ImageBackground>
