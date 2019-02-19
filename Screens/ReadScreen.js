@@ -9,6 +9,7 @@ let Ultimate_key;
 let fake;
 let scode;
 let count;
+let data;
 function processResponse(response) {
   scode = response.status;
   const data = response.json();
@@ -69,7 +70,8 @@ export default class Todos extends React.Component {
         Amount:  Amountin,
             
       }
-      const id =firebase.auth().currentUser.uid
+      const id =(firebase.auth().currentUser.uid).toString()
+
       const NameReq={
           "Name_Type": "americanCities",
           "Amount":  40,
@@ -77,19 +79,22 @@ export default class Todos extends React.Component {
       }
       return fetch('http://www.voidscribe.com/GenerateNames', {
         method: 'POST',
+        headers:{
+          'Accept': 'application/json',
+          'content-type': 'application/json'
+        },
         body: JSON.stringify({
-          "Name_Type": "americanCities",
-          "Amount":  40,
+          "Name_Type":  Textin,
+          "Amount":  Number.parseInt(Amountin),
           "User_ID": id,
         }),
-      }).then(processResponse)
+      })
         .then((response) => response.json())
         .then((responseJson)=> {
           this.setState({ 
             loaded:true,
             todos: responseJson.Data,
           })
-          fake = "Awesome";
         })
         
       .catch(error => this.setState({ errorMessage: error.errorMessage }))
@@ -123,7 +128,7 @@ export default class Todos extends React.Component {
     render() {
     return (
       <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
-        <View style={{ flex: 1 }}>
+        <View style={styles.viewc }>
        
         <Text></Text>
         <Text style={styles.module}>List of Names</Text>
@@ -133,34 +138,38 @@ export default class Todos extends React.Component {
           </Text>}
         
           <ScrollView
+          contentContainerStyle={styles.scroll}
           backgroundColor = 'white'>
           <FlatList
+          contentContainerStyle={styles.list}
                 data={this.state.todos}
-                renderItem={( {item}) => <Text>{item}</Text>}
+                renderItem={( {item}) => <Text style={styles.item}>{item}</Text>}
                 keyExtractor={(item, index) => index.toString()}
                 
                 //renderItem={({ item }) => <Todo {...item} />}
               />
               
-            <Text>{fake}{this.state.counted}</Text>
+            
             <Text></Text>
             
           </ScrollView>
           <Text></Text>
           
-          
-    
-        <Text></Text>
-          <Text></Text>
-          
-          <Text>{scode}</Text>
           <Button
             large
             rounded
-            title={'Generate Read'}
+            title={'Generate Names'}
             backgroundColor={'#C133FF'}
             onPress={() => this.addRead()}
           />
+          <Text></Text>
+          <Button
+                large
+                rounded
+                title="Back"
+                backgroundColor={'#C133FF'}
+                onPress={() => this.props.navigation.navigate('WriteScreen')}
+              />
         </View>
         </ImageBackground>
     );
@@ -170,17 +179,28 @@ export default class Todos extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
+  },
+  viewc:{
+    flex:1,
+    
+    //alignItems: 'center',
   },
   
   module: {
-    fontSize: 14,
+    fontSize: 30,
     marginTop: 4,
     textAlign: 'center',
     width: '80%',
   },
   scroll:{
-    width: '95%',
-    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
+
+  },
+  item: {
+    fontSize: 20,
     
-  }
+  },
+  
 });

@@ -22,7 +22,8 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "native-base": "^2.10.0",
+    "axios": "^0.18.0",
+    "native-base": "^2.11.0",
     "react": "16.5.0",
     "react-native": "0.57.1",
     "react-native-elements": "^0.19.1",

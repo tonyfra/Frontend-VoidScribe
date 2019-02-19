@@ -37,7 +37,10 @@ export default class Todos extends React.Component {
       const { currentUser } = firebase.auth()
       this.setState({ currentUser })
     }
-
+    AllFunc(){
+      categories="All"
+      this.props.navigation.navigate('WriteScreen')
+  }
     ThingsFunc(){
       categories="Things"
       this.props.navigation.navigate('WriteScreen')
@@ -64,6 +67,14 @@ export default class Todos extends React.Component {
             <Text style={styles.titleText}>Select a Category</Text>
           </View>
             <View style={ styles.container1}>
+            <Button
+                large
+                rounded
+                title={'All Names'}
+                backgroundColor={'#C133FF'}
+                onPress={() => this.AllFunc()}
+              />
+              <Text></Text>
               <Button
                 large
                 rounded
