@@ -1494,7 +1494,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlm.voidscribe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlm.voidscribemlm;
 				PRODUCT_NAME = VoidScribe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1518,7 +1518,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlm.voidscribe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlm.voidscribemlm;
 				PRODUCT_NAME = VoidScribe;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

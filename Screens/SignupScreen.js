@@ -15,8 +15,7 @@ export default class SignUp extends React.Component {
 render() {
     return (
       <ImageBackground source={require('../assets/cool-wallpaper-dawn-dusk.jpg')} style ={styles.container}>
-      <View style={styles.container2}
-      backgroundColor='rgba(195,195,195,.5)'>
+      <View style={styles.container2}>
         <Text style={styles.titleText}>Void Scribe</Text>
         {this.state.errorMessage &&
           <Text style={{ color: 'red' }}>
