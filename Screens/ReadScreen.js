@@ -86,7 +86,7 @@ export default class Todos extends React.Component {
         body: JSON.stringify({
           "Name_Type":  Textin,
           "Amount":  Number.parseInt(Amountin),
-          "User_ID": id,
+          "User_ID": "UckfsxVjymXpsYKgy1E7oje2dK62",
         }),
       })
         .then((response) => response.json())
@@ -127,7 +127,7 @@ export default class Todos extends React.Component {
     }
     render() {
     return (
-      <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
+      <ImageBackground source={require('../assets/abstract-ancient-antique.jpg')} style ={styles.container}>
         <View style={styles.viewc }>
        
         <Text></Text>
@@ -145,15 +145,13 @@ export default class Todos extends React.Component {
                 data={this.state.todos}
                 renderItem={( {item}) => <Text style={styles.item}>{item}</Text>}
                 keyExtractor={(item, index) => index.toString()}
-                
-                //renderItem={({ item }) => <Todo {...item} />}
               />
               
             
             <Text></Text>
             
           </ScrollView>
-          <Text></Text>
+          
           
           <Button
             large

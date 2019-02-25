@@ -9,9 +9,7 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: "pokemon",
-      titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      
     };
   }
   onValueChange(value) {
@@ -19,34 +17,31 @@ export default class Main extends React.Component {
       selected: value
     });
   }
-  state = { currentUser: null }
-  componentDidMount() {
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
-  }
+  
 render() {
-    const { currentUser } = this.state
 return (
-  <ImageBackground source={require('../assets/digital-art.jpg')} style ={styles.container}>
-  <View style={ styles.container2 }>
-  <Text></Text>
+  <ImageBackground source={require('../assets/notebook-notepad-paper.jpg')} style ={styles.container}>
+    <View style={ styles.container2 }>
+    <Text></Text>
+    <Text></Text>
     <Text style={styles.titleText}>Void Scribe</Text>
     </View>
       <View style={ styles.container1 }>
-        <Text>
-          
-        </Text>
+        
         <Button
           large
           rounded
-          title="Generate"
+          title="Generate Names"
           backgroundColor={'#C133FF'}
-          onPress={() => this.props.navigation.navigate('ReadScreen')}
+          onPress={() => this.props.navigation.navigate('SelectNameCatScreen')}
         />
+        <Text></Text>
+        <Text></Text>
+        
         <Button
           large
           rounded
-          title="Generate Write"
+          title="Generate Prompts"
           backgroundColor={'#C133FF'}
           onPress={() => this.props.navigation.navigate('WriteScreen')}
         />
@@ -58,17 +53,15 @@ return (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center'
   },
   container1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex:3,
+    height: '50%',
   },
   container2: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   baseText: {
     fontFamily: 'Cochin',
@@ -80,31 +73,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#C133FF',
   },
+  buttonStyle:{
+    height:'50%'
+  }
+
 })
-/*<Text></Text>
-          <Picker
-              note
-              mode="dropdown"
-              
-              selectedValue={this.state.selected}
-              onValueChange={this.onValueChange.bind(this)}
-            >
-              <Picker.Item label="Pokemon" value="pokemon" />
-              <Picker.Item label="American Cites" value="americanCites" />
-              <Picker.Item label="Animals" value="animals" />
-              <Picker.Item label="Credit Card" value="key3" />
-              <Picker.Item label="Net Banking" value="key4" />
-          </Picker>
-        
-    
-        <Text></Text>
-        
-        
-        <Text style={styles.baseText}>
-        <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
-        </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
-      </Text>*/

@@ -61,7 +61,7 @@ export default class Todos extends React.Component {
 
         render() {
         return (
-          <ImageBackground source={require('../assets/backdropBlue.jpg')} style ={styles.container}>
+          <ImageBackground source={require('../assets/creased-crinkled-crumpled.jpg')} style ={styles.container}>
           <View style={ styles.container2 }>
             <Text></Text>
             <Text style={styles.titleText}>Select a Category</Text>
@@ -107,7 +107,20 @@ export default class Todos extends React.Component {
               onPress={() => this.ThingsFunc()}
             />
               <Text></Text>
+              <Text></Text>
+              <Text></Text>
+              <Text></Text>
+              <Text></Text>
+              <Text></Text>
+              <Button
+              large
+              rounded
+              title={'Back'}
+              backgroundColor={'#C133FF'}
+              onPress={() => this.props.navigation.navigate('MainScreen')}
+            />
             </View>
+           
             </ImageBackground>
         );
     }
@@ -117,13 +130,10 @@ export default class Todos extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        
-    
       },
       container1: {
-        
+        flex:8,
         justifyContent: 'center',
-        
       },
       container2: {
         flex: 1,
