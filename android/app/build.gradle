@@ -108,7 +108,7 @@ android {
   compileSdkVersion rootProject.ext.compileSdkVersion
 
   defaultConfig {
-    applicationId "com.mlm.voidscribe"
+    applicationId "com.mlm.voidscribemlm"
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1

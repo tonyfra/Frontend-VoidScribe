@@ -1,4 +1,4 @@
-package com.mlm.voidscribe;
+package com.mlm.voidscribemlm;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

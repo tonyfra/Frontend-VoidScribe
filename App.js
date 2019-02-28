@@ -29,7 +29,7 @@ const MyAppNavigator = createSwitchNavigator(
   SelectNameCatScreen,
   },
   {
-    initialRouteName: 'MainScreen'
+    initialRouteName: 'LoadingScreen'
   }
   
 );
