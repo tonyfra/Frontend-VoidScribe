@@ -1,4 +1,4 @@
-package com.mlm.voidscribe;
+package com.voidscribe;
 
 import com.facebook.react.ReactActivity;
 

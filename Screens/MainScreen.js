@@ -1,15 +1,11 @@
 import React from 'react'
-import { StyleSheet, Platform, Image, Text, View, ScrollView, ImageBackground  } from 'react-native'
-import { Dropdown } from 'react-native-material-dropdown';
-import firebase from 'react-native-firebase'
-import ModalDropdown from 'react-native-modal-dropdown';
-import {Picker} from "native-base";
+import { StyleSheet, Text, View, ImageBackground } from 'react-native'
 import { Button } from 'react-native-elements';
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     };
   }
   onValueChange(value) {
@@ -17,36 +13,36 @@ export default class Main extends React.Component {
       selected: value
     });
   }
-  
-render() {
-return (
-  <ImageBackground source={require('../assets/notebook-notepad-paper.jpg')} style ={styles.container}>
-    <View style={ styles.container2 }>
-    <Text></Text>
-    <Text></Text>
-    <Text style={styles.titleText}>Void Scribe</Text>
-    </View>
-      <View style={ styles.container1 }>
-        
-        <Button
-          large
-          rounded
-          title="Generate Names"
-          backgroundColor={'#C133FF'}
-          onPress={() => this.props.navigation.navigate('SelectNameCatScreen')}
-        />
-        <Text></Text>
-        <Text></Text>
-        
-        <Button
-          large
-          rounded
-          title="Generate Prompts"
-          backgroundColor={'#C133FF'}
-          onPress={() => this.props.navigation.navigate('WriteScreen')}
-        />
-      </View>
-  </ImageBackground>
+
+  render() {
+    return (
+      <ImageBackground source={require('../assets/abstract-ancient-antique.jpg')} style={styles.container}>
+        <View style={styles.container2}>
+          <Text></Text>
+          <Text></Text>
+          <Text style={styles.titleText}>Void Scribe</Text>
+        </View>
+        <View style={styles.container1}>
+
+          <Button
+            large
+            rounded
+            title="Generate Names"
+            backgroundColor={'#681382'}
+            onPress={() => this.props.navigation.navigate('SelectNameCatScreen')}
+          />
+          <Text></Text>
+          <Text></Text>
+
+          <Button
+            large
+            rounded
+            title="Generate Prompts"
+            backgroundColor={'#681382'}
+            onPress={() => this.props.navigation.navigate('PromptScreen')}
+          />
+        </View>
+      </ImageBackground>
     )
   }
 }
@@ -55,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container1: {
-    flex:3,
+    flex: 3,
     height: '50%',
   },
   container2: {
@@ -69,12 +65,12 @@ const styles = StyleSheet.create({
   titleText: {
     flex: 1,
     fontFamily: 'Cochin',
-    fontSize: 50,
+    fontSize: 70,
     fontWeight: 'bold',
-    color: '#C133FF',
+    color: 'black',
   },
-  buttonStyle:{
-    height:'50%'
+  buttonStyle: {
+    height: '50%'
   }
 
 })
