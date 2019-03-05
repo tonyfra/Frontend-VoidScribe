@@ -49,7 +49,6 @@ export default class Todos extends React.Component {
       <ImageBackground source={require('../assets/abstract-ancient-antique.jpg')} style={styles.container}>
         <View style={styles.container2}>
           <Text></Text>
-          <Text></Text>
           <Text style={styles.titleText}>Select a Category</Text>
         </View>
         <View style={styles.container1}>
